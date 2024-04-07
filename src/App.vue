@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {ref, watch} from 'vue';
 
 import Speed from "@/components/icons/Speed.vue";
 import Elivation from "@/components/icons/Elivation.vue";
@@ -39,6 +39,7 @@ function calculate() {
 }
 
 calculate();
+watch([speed, distance, elevation], calculate);
 </script>
 
 <template>
