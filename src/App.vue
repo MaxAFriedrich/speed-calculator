@@ -22,7 +22,7 @@ function minuetsToHours() {
   return hours.value + minutes.value / 60;
 }
 
-function calculate(){
+function calculate() {
   const speedValue = speed.value;
   const distanceValue = distance.value;
   const elevationValue = elevation.value;
@@ -42,28 +42,34 @@ calculate();
 </script>
 
 <template>
-  <div>
+  <div class="property">
     <Speed/>
     <label for="speed">Speed (km/h)</label>
-    <input type="number" id="speed" v-model="speed" />
+    <input type="number" id="speed" v-model="speed"/>
   </div>
-  <div>
+  <div class="property">
     <Distance/>
     <label for="distance">Distance (km)</label>
-    <input type="number" id="distance" v-model="distance" />
+    <input type="number" id="distance" v-model="distance"/>
   </div>
-  <div>
+  <div class="property">
     <Elivation/>
     <label for="elevation">Elevation Gain (m)</label>
-    <input type="number" id="elevation" v-model="elevation" />
+    <input type="number" id="elevation" v-model="elevation"/>
   </div>
-  <div>
-    <Time/>
-    <label>Time </label>
-    <label for="hours">hours</label>
-    <input type="number" id="hours" v-model="hours" />
-    <label for="minutes">minutes</label>
-    <input type="number" id="minutes" v-model="minutes"/>
+  <div class="time">
+    <div class="property">
+      <Time/>
+      <label>Time </label>
+    </div>
+    <div class="property">
+      <label for="hours">Hours</label>
+      <span>{{hours}}</span>
+    </div>
+    <div class="property">
+      <label for="minutes">Minutes</label>
+      <span>{{minutes}}</span>
+    </div>
   </div>
 </template>
 
