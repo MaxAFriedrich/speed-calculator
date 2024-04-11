@@ -26,16 +26,14 @@ function calculate() {
   const speedValue = speed.value;
   const distanceValue = distance.value;
   const elevationValue = elevation.value;
-  const timeValue = minuetsToHours();
 
-  const timeInSeconds = timeValue * 3600;
-  const distanceInMeters = distanceValue * 1000;
-  const timeInSecondsWithElevation = timeInSeconds + (elevationValue / 10);
-  const speedInMetersPerSecond = speedValue / 3.6;
+  const elivationTime = (elevationValue / 10) / 60;
 
-  const timeToCompleteWithElevation = distanceInMeters / speedInMetersPerSecond + timeInSecondsWithElevation;
+  const timeToComplete = distanceValue / speedValue;
 
-  hoursToMinuets(timeToCompleteWithElevation / 3600);
+  const timeToCompleteWithElevation = timeToComplete + elivationTime;
+
+  hoursToMinuets(timeToCompleteWithElevation);
 }
 
 calculate();
@@ -65,11 +63,11 @@ watch([speed, distance, elevation], calculate);
     </div>
     <div class="property">
       <label for="hours">Hours</label>
-      <span>{{hours}}</span>
+      <span>{{ hours }}</span>
     </div>
     <div class="property">
       <label for="minutes">Minutes</label>
-      <span>{{minutes}}</span>
+      <span>{{ minutes }}</span>
     </div>
   </div>
 </template>
